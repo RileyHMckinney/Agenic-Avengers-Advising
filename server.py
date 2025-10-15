@@ -1,14 +1,17 @@
 # server.py
 import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Optional
 from tools.tool_wrappers.job_search_tool import JobSearchTool
+from agent import agent_handle  # ✅ import your agent
 
 app = FastAPI(title="Agenic Avengers - Agent Backend")
 
-# choose mode by env var: default 'lambda' for integration testing
 MODE = os.getenv("JOB_TOOL_MODE", "lambda")
 LAMBDA_NAME = os.getenv("SERPAPI_LAMBDA_NAME", "serpapi-google-jobs")
 REGION = os.getenv("AWS_REGION", "us-east-1")
@@ -30,6 +33,14 @@ async def search(req: SearchRequest):
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+class AgentQuery(BaseModel):
+    message: str
+
+@app.post("/api/agent")
+def call_agent(query: AgentQuery):
+    result = agent_handle(query.message)
+    return {"results": result}
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
