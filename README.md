@@ -3,6 +3,7 @@ An AI-powered job-search assistant built on AWS Bedrock using Anthropic Claude 3
 agent interprets user messages, extracts job intent (query + location), and fetches real job listings using
 the integrated JobSearchTool.
 System Overview
+```
 Agenic-Avengers-Advising/
 │
 ├── agent_bedrock.py            ← Main agent file (Claude + tool integration)
@@ -15,6 +16,7 @@ Agenic-Avengers-Advising/
 ├── .env                        ← Environment variables (not committed)
 ├── requirements.txt             ← Python dependencies
 └── README.md                    ← This file
+```
 
 1. Prerequisites
 - Python 3.11+ (recommended 3.12 or 3.13)
