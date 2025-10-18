@@ -3,7 +3,7 @@ An AI-powered job-search assistant built on AWS Bedrock using Anthropic Claude 3
 agent interprets user messages, extracts job intent (query + location), and fetches real job listings using
 the integrated JobSearchTool.
 System Overview
-```
+'''
 Agenic-Avengers-Advising/
 │
 ├── agent_bedrock.py            ← Main agent file (Claude + tool integration)
@@ -16,7 +16,7 @@ Agenic-Avengers-Advising/
 ├── .env                        ← Environment variables (not committed)
 ├── requirements.txt             ← Python dependencies
 └── README.md                    ← This file
-```
+'''
 
 1. Prerequisites
 - Python 3.11+ (recommended 3.12 or 3.13)
@@ -28,37 +28,33 @@ Agenic-Avengers-Advising/
 - Access to the Anthropic Claude 3 Sonnet model in AWS Bedrock
 
 2. AWS Credentials Setup
-Run: ``` aws configure ```
+Run: aws configure
 Then enter your AWS credentials and region (us-east-1).
-Verify setup using: ``` aws sts get-caller-identity ```
+Verify setup using: aws sts get-caller-identity
 
 3. Environment Variables
 Create a .env file with:
-```
 AWS_REGION=us-east-1
 JOB_TOOL_MODE=local
 SERPAPI_KEY=your_serpapi_key_here
-```
 
-5. Install Dependencies
-``` pip install -r requirements.txt ```
+4. Install Dependencies
+pip install -r requirements.txt
 Required packages:
 boto3
 python-dotenv
 requests
 
-6. Model Configuration
+5. Model Configuration
 Default model: anthropic.claude-3-sonnet-20240229-v1:0
 To change it, edit MODEL_ID in agent_bedrock.py.
 
-7. Run a Test Query
-```
+6. Run a Test Query
 python -c "from agent_bedrock import agent_handle; print(agent_handle('find software engineer
 internships in Austin'))"
-```
 Expected Output: JSON response with query, location, and job results.
 
-8. How It Works
+7. How It Works
 agent_bedrock.py:
 1. Sends user message to Claude 3.
 2. Model returns structured JSON.
