@@ -34,9 +34,9 @@ Verify setup using: aws sts get-caller-identity
 
 3. Environment Variables
 Create a .env file with:
-AWS_REGION=us-east-1
-JOB_TOOL_MODE=local
-SERPAPI_KEY=your_serpapi_key_here
+JOB_TOOL_MODE = "local"
+SERPAPI_SECRET_NAME = "Agenic/SerpApiKey"
+AWS_REGION = "us-east-1"
 
 4. Install Dependencies
 pip install -r requirements.txt
