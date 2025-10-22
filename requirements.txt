@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 boto3
 botocore
 requests
 python-dotenv
-=======
 # University Chatbot - React/TypeScript Project Requirements
 # 
 # This is a React application built with TypeScript and Create React App.
@@ -48,4 +46,3 @@ web-vitals==2.1.4
 # npm run build
 # or
 # yarn build
->>>>>>> master

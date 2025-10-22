@@ -1,4 +1,4 @@
-
+<<<<<<< HEAD
 Agenic Avengers Advising – AI Job Search Agent
 An AI-powered job-search assistant built on AWS Bedrock using Anthropic Claude 3 Sonnet. This
 agent interprets user messages, extracts job intent (query + location), and fetches real job listings using
@@ -110,7 +110,6 @@ AccessDeniedException → ensure bedrock:InvokeModel permission
 - Deploy via AWS Lambda or ECS
 - Add DynamoDB/S3 memory
 - Cache frequent job searches
-=======
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -157,4 +156,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
->>>>>>> master
