@@ -1,0 +1,44 @@
+# University Chatbot - React/TypeScript Project Requirements
+# 
+# This is a React application built with TypeScript and Create React App.
+# The main dependencies are managed through npm/package.json, but this file
+# provides an overview of the key requirements.
+
+# Core Framework & Language
+react==19.2.0
+react-dom==19.2.0
+typescript==4.9.5
+
+# Build Tools
+react-scripts==5.0.1
+
+# Testing Dependencies
+@testing-library/react==16.3.0
+@testing-library/jest-dom==6.9.1
+@testing-library/user-event==13.5.0
+@testing-library/dom==10.4.1
+@types/jest==27.5.2
+
+# Type Definitions
+@types/node==16.18.126
+@types/react==19.2.2
+@types/react-dom==19.2.2
+
+# Performance Monitoring
+web-vitals==2.1.4
+
+# Setup Instructions:
+# 1. Install Node.js (version 16 or higher recommended)
+# 2. Run: npm install
+# 3. Run: npm start
+# 4. Open http://localhost:3000 in your browser
+
+# Alternative setup with yarn:
+# 1. Install Node.js and yarn
+# 2. Run: yarn install
+# 3. Run: yarn start
+
+# Build for production:
+# npm run build
+# or
+# yarn build
