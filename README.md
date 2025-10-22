@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 Agenic Avengers Advising – AI Job Search Agent
 An AI-powered job-search assistant built on AWS Bedrock using Anthropic Claude 3 Sonnet. This
 agent interprets user messages, extracts job intent (query + location), and fetches real job listings using
