@@ -22,7 +22,10 @@ const ChatBot: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState('chat');
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -72,6 +75,48 @@ const ChatBot: React.FC = () => {
 
   const handleQuickStart = (message: string) => {
     handleSendMessage(message);
+  };
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    // Validate file type
+    const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    if (!allowedTypes.includes(file.type)) {
+      alert('Please upload a PDF or Word document (.pdf, .doc, .docx)');
+      return;
+    }
+
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      alert('File size must be less than 5MB');
+      return;
+    }
+
+    setIsUploading(true);
+    setUploadedFile(file);
+
+    // Simulate file processing
+    setTimeout(() => {
+      const uploadMessage: ChatMessage = {
+        id: Date.now().toString(),
+        content: `I see you've uploaded a resume! I can help you improve it. What specific section would you like me to review?`,
+        isUser: false,
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, uploadMessage]);
+      setIsUploading(false);
+      
+      // Reset upload state after showing success for 3 seconds
+      setTimeout(() => {
+        setUploadedFile(null);
+      }, 3000);
+    }, 2000);
+  };
+
+  const triggerFileUpload = () => {
+    fileInputRef.current?.click();
   };
 
   const quickStartOptions = [
@@ -177,7 +222,15 @@ const ChatBot: React.FC = () => {
             </div>
 
             {/* Input Section */}
-            <InputBar onSendMessage={handleSendMessage} disabled={isLoading} />
+            <InputBar 
+              onSendMessage={handleSendMessage} 
+              disabled={isLoading}
+              onFileUpload={handleFileUpload}
+              triggerFileUpload={triggerFileUpload}
+              isUploading={isUploading}
+              uploadedFile={uploadedFile}
+              fileInputRef={fileInputRef}
+            />
           </>
         );
     }
