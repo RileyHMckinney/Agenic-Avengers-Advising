@@ -1,0 +1,117 @@
+# This AWS SAM template has been generated from your function's configuration. If
+# your function has one or more triggers, note that the AWS resources associated
+# with these triggers aren't fully specified in this template and include
+# placeholder values. Open this template in AWS Infrastructure Composer or your
+# favorite IDE and modify it to specify a serverless application with other AWS
+# resources.
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: An AWS Serverless Application Model template describing your function.
+Resources:
+  serpapigooglejobs:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./src
+      Description: ''
+      MemorySize: 512
+      Timeout: 30
+      Handler: lambda_handler.lambda_handler
+      Runtime: python3.11
+      Architectures:
+        - x86_64
+      EphemeralStorage:
+        Size: 512
+      Environment:
+        Variables:
+          SERPAPI_SECRET_NAME: Agenic/SerpApiKey
+      EventInvokeConfig:
+        MaximumEventAgeInSeconds: 21600
+        MaximumRetryAttempts: 2
+      PackageType: Zip
+      Policies:
+        - Statement:
+            - Sid: SecretsManagerRead
+              Effect: Allow
+              Action:
+                - secretsmanager:GetSecretValue
+                - secretsmanager:DescribeSecret
+              Resource: >-
+                arn:aws:secretsmanager:us-east-1:116981780558:secret:Agenic/SerpApiKey-D9kaoA
+            - Sid: AllowLogs
+              Effect: Allow
+              Action:
+                - logs:CreateLogGroup
+                - logs:CreateLogStream
+                - logs:PutLogEvents
+              Resource: arn:aws:logs:*:*:*
+            - Sid: BasePermissions
+              Effect: Allow
+              Action:
+                - secretsmanager:*
+                - cloudformation:CreateChangeSet
+                - cloudformation:DescribeChangeSet
+                - cloudformation:DescribeStackResource
+                - cloudformation:DescribeStacks
+                - cloudformation:ExecuteChangeSet
+                - docdb-elastic:GetCluster
+                - docdb-elastic:ListClusters
+                - ec2:DescribeSecurityGroups
+                - ec2:DescribeSubnets
+                - ec2:DescribeVpcs
+                - kms:DescribeKey
+                - kms:ListAliases
+                - kms:ListKeys
+                - lambda:ListFunctions
+                - rds:DescribeDBClusters
+                - rds:DescribeDBInstances
+                - redshift:DescribeClusters
+                - redshift-serverless:ListWorkgroups
+                - redshift-serverless:GetNamespace
+                - tag:GetResources
+              Resource: '*'
+            - Sid: LambdaPermissions
+              Effect: Allow
+              Action:
+                - lambda:AddPermission
+                - lambda:CreateFunction
+                - lambda:GetFunction
+                - lambda:InvokeFunction
+                - lambda:UpdateFunctionConfiguration
+              Resource: arn:aws:lambda:*:*:function:SecretsManager*
+            - Sid: SARPermissions
+              Effect: Allow
+              Action:
+                - serverlessrepo:CreateCloudFormationChangeSet
+                - serverlessrepo:GetApplication
+              Resource: arn:aws:serverlessrepo:*:*:applications/SecretsManager*
+            - Sid: S3Permissions
+              Effect: Allow
+              Action:
+                - s3:GetObject
+              Resource:
+                - arn:aws:s3:::awsserverlessrepo-changesets*
+                - arn:aws:s3:::secrets-manager-rotation-apps-*/*
+            - Effect: Allow
+              Action:
+                - logs:CreateLogGroup
+                - logs:CreateLogStream
+                - logs:PutLogEvents
+              Resource: '*'
+            - Effect: Allow
+              Action:
+                - dynamodb:ListTables
+                - dynamodb:DescribeTable
+                - dynamodb:PutItem
+                - dynamodb:GetItem
+                - dynamodb:UpdateItem
+                - dynamodb:DeleteItem
+                - dynamodb:Scan
+                - dynamodb:Query
+              Resource:
+                - arn:aws:dynamodb:us-east-1:116981780558:table/AgenicUserMemory
+                - arn:aws:dynamodb:us-east-1:116981780558:table/*
+      RecursiveLoop: Terminate
+      SnapStart:
+        ApplyOn: None
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: Auto
