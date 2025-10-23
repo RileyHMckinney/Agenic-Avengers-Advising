@@ -1,0 +1,398 @@
+{
+    "ui_name": "Pastel Orange-Yellow Chatbot Interface",
+    "description": "A minimal, ChatGPT-style chatbot UI with soft gradients, rounded corners, and interactive quick-start buttons. The color scheme uses a pastel orange-to-yellow background gradient to create a warm, optimistic aesthetic.",
+    "layout": {
+      "container": {
+        "width": "480px",
+        "height": "620px",
+        "border_radius": "20px",
+        "padding": "24px",
+        "background": "linear-gradient(135deg, #FFEAC2 0%, #FFD6A5 50%, #FFF8E1 100%)",
+        "box_shadow": "0 4px 16px rgba(0, 0, 0, 0.08)",
+        "border": "1px solid rgba(255, 255, 255, 0.3)",
+        "display": "flex",
+        "flex_direction": "column",
+        "justify_content": "space-between",
+        "font_family": "'Inter', 'Helvetica Neue', sans-serif"
+      },
+      "top_window_controls": {
+        "type": "horizontal_indicator_lights",
+        "alignment": "left",
+        "spacing": "8px",
+        "padding_bottom": "12px",
+        "elements": [
+          { "shape": "circle", "size": "10px", "color": "#FF5F56" },
+          { "shape": "circle", "size": "10px", "color": "#FFBD2E" },
+          { "shape": "circle", "size": "10px", "color": "#27C93F" }
+        ]
+      },
+      "chat_area": {
+        "type": "scrollable",
+        "height": "calc(100% - 80px)",
+        "overflow_y": "auto",
+        "padding_top": "12px",
+        "padding_bottom": "12px",
+        "display": "flex",
+        "flex_direction": "column",
+        "gap": "16px",
+        "scrollbar": {
+          "width": "6px",
+          "thumb_color": "rgba(0,0,0,0.1)",
+          "track_color": "transparent",
+          "border_radius": "4px"
+        }
+      },
+      "input_section": {
+        "type": "fixed_bottom_bar",
+        "background": "rgba(255,255,255,0.6)",
+        "border_radius": "16px",
+        "padding": "8px 12px",
+        "display": "flex",
+        "align_items": "center",
+        "backdrop_filter": "blur(8px)",
+        "gap": "8px",
+        "input_field": {
+          "placeholder": "Ask a question",
+          "flex": 1,
+          "font_size": "15px",
+          "background": "transparent",
+          "border": "none",
+          "outline": "none",
+          "color": "#333"
+        },
+        "send_button": {
+          "icon": "arrow_right",
+          "background": "transparent",
+          "border": "none",
+          "color": "#333",
+          "cursor": "pointer",
+          "hover_effect": "opacity:0.8"
+        }
+      }
+    },
+    "components": {
+      "message_bubble": {
+        "base_style": {
+          "max_width": "80%",
+          "padding": "14px 18px",
+          "border_radius": "16px",
+          "font_size": "15px",
+          "line_height": "1.4",
+          "box_shadow": "0 2px 8px rgba(0,0,0,0.04)"
+        },
+        "user_message": {
+          "alignment": "right",
+          "background": "linear-gradient(135deg, #FFB347 0%, #FFD152 100%)",
+          "color": "#222",
+          "border_top_right_radius": "4px",
+          "margin_left": "auto",
+          "animation": "fadeInRight 0.4s ease"
+        },
+        "bot_message": {
+          "alignment": "left",
+          "background": "rgba(255,255,255,0.7)",
+          "color": "#111",
+          "border_top_left_radius": "4px",
+          "margin_right": "auto",
+          "animation": "fadeInLeft 0.4s ease"
+        },
+        "timestamp_style": {
+          "font_size": "11px",
+          "opacity": "0.6",
+          "margin_top": "4px",
+          "text_align": "right"
+        }
+      },
+      "quick_start_buttons": {
+        "position": "above_input_bar",
+        "layout": {
+          "display": "flex",
+          "gap": "12px",
+          "justify_content": "center",
+          "padding_bottom": "12px"
+        },
+        "buttons": [
+          {
+            "label": "Resume Advice",
+            "background": "#000",
+            "color": "#fff",
+            "padding": "10px 16px",
+            "border_radius": "24px",
+            "font_size": "14px",
+            "hover_effect": "background: #333"
+          },
+          {
+            "label": "Job Search",
+            "background": "#000",
+            "color": "#fff",
+            "padding": "10px 16px",
+            "border_radius": "24px",
+            "font_size": "14px",
+            "hover_effect": "background: #333"
+          },
+          {
+            "label": "Course Planning",
+            "background": "#000",
+            "color": "#fff",
+            "padding": "10px 16px",
+            "border_radius": "24px",
+            "font_size": "14px",
+            "hover_effect": "background: #333"
+          },
+          {
+            "label": "Interview Prep",
+            "background": "#000",
+            "color": "#fff",
+            "padding": "10px 16px",
+            "border_radius": "24px",
+            "font_size": "14px",
+            "hover_effect": "background: #333"
+          }
+        ]
+      }
+    },
+    "animations": {
+      "fadeInLeft": "from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); }",
+      "fadeInRight": "from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); }"
+    },
+    "aesthetic_notes": {
+      "theme": "warm pastel gradient (orange to yellow)",
+      "vibe": "friendly, approachable, and student-focused",
+      "intended_use": "university advisor chatbot interface (e.g., for UTD student support)",
+      "mood": "bright, uplifting, encouraging, but still professional"
+    }
+  }
+  {
+    "mode": "dark",
+    "ui_name": "UTD Advisor Chatbot – Dark Mode",
+    "description": "A sleek dark-mode chatbot interface inspired by ChatGPT, featuring a UTD-themed orange, green, and black color palette with soft gradients, neon accents, and smooth animations.",
+    "layout": {
+      "container": {
+        "width": "480px",
+        "height": "620px",
+        "border_radius": "20px",
+        "padding": "24px",
+        "background": "linear-gradient(135deg, #0D0D0D 0%, #1A1A1A 60%, #0E0E0E 100%)",
+        "box_shadow": "0 4px 20px rgba(0, 0, 0, 0.7)",
+        "border": "1px solid rgba(255, 255, 255, 0.05)",
+        "display": "flex",
+        "flex_direction": "column",
+        "justify_content": "space-between",
+        "font_family": "'Inter', 'Helvetica Neue', sans-serif",
+        "color": "#F5F5F5"
+      },
+      {
+        "mode": "dark",
+        "ui_name": "Eida – UTD Advisor Chatbot (Dark Mode)",
+        "description": "Dark mode UI designed as a true visual inversion of the light theme — same warmth, layout, and depth, but with a rich black-orange-green palette and gentle ambient glow.",
+        "layout": {
+          "container": {
+            "width": "100%",
+            "height": "100vh",
+            "border_radius": "0",
+            "background": "linear-gradient(135deg, #0D0D0D 0%, #121212 40%, #1A1A1A 100%)",
+            "color": "#EDEDED",
+            "display": "flex",
+            "flex_direction": "row",
+            "font_family": "'Inter', 'Helvetica Neue', sans-serif",
+            "transition": "all 0.3s ease-in-out"
+          },
+          "sidebar": {
+            "width": "240px",
+            "background": "linear-gradient(135deg, #131313 0%, #1C1C1C 100%)",
+            "border_right": "1px solid rgba(255, 255, 255, 0.08)",
+            "color": "#F5F5F5",
+            "padding": "32px 24px",
+            "display": "flex",
+            "flex_direction": "column",
+            "justify_content": "space-between",
+            "font_weight": "400",
+            "title": {
+              "font_size": "28px",
+              "font_weight": "700",
+              "color": "#FFFFFF",
+              "margin_bottom": "8px"
+            },
+            "subtitle": {
+              "font_size": "14px",
+              "opacity": "0.7",
+              "margin_bottom": "24px"
+            },
+            "nav_buttons": [
+              {
+                "label": "💬 Chat",
+                "background": "#2A2A2A",
+                "color": "#FFFFFF",
+                "hover_effect": "background: #333333",
+                "padding": "12px 16px",
+                "border_radius": "8px"
+              },
+              {
+                "label": "📞 Contact",
+                "background": "transparent",
+                "color": "#CCCCCC",
+                "hover_effect": "background: #222222",
+                "padding": "12px 16px",
+                "border_radius": "8px"
+              },
+              {
+                "label": "⚡ Built on AWS Bedrock",
+                "background": "transparent",
+                "color": "#FF7A00",
+                "hover_effect": "background: #1F1F1F",
+                "padding": "12px 16px",
+                "border_radius": "8px"
+              }
+            ],
+            "mode_toggle": {
+              "label": "🌙 Light Mode",
+              "background": "#2A2A2A",
+              "color": "#FF7A00",
+              "border_radius": "8px",
+              "padding": "12px 16px",
+              "hover_effect": "background: #333333"
+            },
+            "footer_text": {
+              "text": "© 2025 UTDallas",
+              "font_size": "12px",
+              "opacity": "0.6",
+              "text_align": "center",
+              "margin_top": "20px"
+            }
+          },
+          "chat_area": {
+            "flex": 1,
+            "padding": "24px 40px",
+            "display": "flex",
+            "flex_direction": "column",
+            "justify_content": "space-between",
+            "overflow": "hidden",
+            "scroll_container": {
+              "height": "100%",
+              "overflow_y": "auto",
+              "padding_right": "16px",
+              "scrollbar": {
+                "width": "8px",
+                "thumb_color": "rgba(255, 122, 0, 0.4)",
+                "track_color": "transparent",
+                "border_radius": "6px",
+                "margin_right": "6px"
+              }
+            }
+          }
+        },
+        "components": {
+          "chat_bubble": {
+            "base": {
+              "max_width": "75%",
+              "padding": "14px 18px",
+              "border_radius": "16px",
+              "font_size": "15px",
+              "line_height": "1.5",
+              "margin_bottom": "10px",
+              "box_shadow": "0 2px 10px rgba(0,0,0,0.3)"
+            },
+            "user": {
+              "alignment": "right",
+              "background": "linear-gradient(135deg, #FF9E3A 0%, #FF7A00 100%)",
+              "color": "#111",
+              "border_top_right_radius": "4px",
+              "margin_left": "auto"
+            },
+            "bot": {
+              "alignment": "left",
+              "background": "rgba(255, 255, 255, 0.08)",
+              "border": "1px solid rgba(255, 255, 255, 0.05)",
+              "color": "#EDEDED",
+              "border_top_left_radius": "4px",
+              "margin_right": "auto"
+            },
+            "timestamp": {
+              "font_size": "11px",
+              "opacity": "0.6",
+              "margin_top": "4px",
+              "text_align": "right"
+            }
+          },
+          "quick_buttons": {
+            "layout": {
+              "display": "flex",
+              "gap": "12px",
+              "justify_content": "center",
+              "padding_top": "12px"
+            },
+            "buttons": [
+              {
+                "label": "Resume Advice",
+                "background": "#000000",
+                "color": "#FFFFFF",
+                "padding": "10px 16px",
+                "border_radius": "24px",
+                "hover_effect": "background: #111111"
+              },
+              {
+                "label": "Job Search",
+                "background": "#000000",
+                "color": "#FFFFFF",
+                "padding": "10px 16px",
+                "border_radius": "24px",
+                "hover_effect": "background: #111111"
+              },
+              {
+                "label": "Course Planning",
+                "background": "#000000",
+                "color": "#FFFFFF",
+                "padding": "10px 16px",
+                "border_radius": "24px",
+                "hover_effect": "background: #111111"
+              },
+              {
+                "label": "Interview Prep",
+                "background": "#000000",
+                "color": "#FFFFFF",
+                "padding": "10px 16px",
+                "border_radius": "24px",
+                "hover_effect": "background: #111111"
+              }
+            ]
+          },
+          "input_field": {
+            "background": "rgba(255, 255, 255, 0.07)",
+            "border_radius": "16px",
+            "padding": "10px 16px",
+            "display": "flex",
+            "align_items": "center",
+            "backdrop_filter": "blur(6px)",
+            "input": {
+              "placeholder": "Ask a question",
+              "background": "transparent",
+              "border": "none",
+              "outline": "none",
+              "color": "#F5F5F5",
+              "flex": 1,
+              "font_size": "15px"
+            },
+            "send_button": {
+              "icon": "arrow_right",
+              "background": "linear-gradient(135deg, #FF7A00 0%, #2DBE60 100%)",
+              "color": "#000",
+              "border_radius": "50%",
+              "padding": "8px",
+              "cursor": "pointer",
+              "hover_effect": "opacity: 0.85"
+            }
+          }
+        },
+        "aesthetic_notes": {
+          "theme": "dark with soft contrast",
+          "color_palette": {
+            "background": "#0D0D0D",
+            "primary_orange": "#FF7A00",
+            "accent_green": "#2DBE60",
+            "text_primary": "#EDEDED",
+            "text_muted": "#AAAAAA"
+          },
+          "design_intent": "Retain the light mode’s warmth and spacing while presenting a clear, comfortable dark inversion with breathing room for the chat bubbles and scroll bar."
+        }
+      }
+      
